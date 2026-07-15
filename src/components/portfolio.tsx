@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,6 +49,7 @@ export function Portfolio({
       const containerEl = containerRef.current;
 
       const ctx = gsap.context(() => {
+        // @ts-ignore - GSAP fromTo with array targets has complex type signatures
         gsap.fromTo(
           filterEl.querySelectorAll(".filter-btn"),
           { opacity: 0, y: 20 },
@@ -65,6 +67,7 @@ export function Portfolio({
           }
         );
 
+        // @ts-ignore - GSAP fromTo with array targets has complex type signatures
         gsap.fromTo(
           gridEl.querySelectorAll(".project-card"),
           { opacity: 0, y: 50, scale: 0.95 },
@@ -227,12 +230,12 @@ export function Portfolio({
         </div>
 
         <div className="text-center mt-12">
-          <a href="/work" className="btn btn-secondary">
+          <Link href="/work" className="btn btn-secondary">
             View All Projects
             <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

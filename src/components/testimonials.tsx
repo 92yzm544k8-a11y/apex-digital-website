@@ -30,7 +30,6 @@ export function Testimonials({
   subtitle = "Don't just take our word for it. Hear from the businesses we've helped transform.",
 }: TestimonialsProps) {
   const containerRef = useRef<HTMLElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -101,7 +100,6 @@ export function Testimonials({
 
         <div className="relative">
           <div
-            ref={trackRef}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
             role="list"
             aria-label="Client testimonials"

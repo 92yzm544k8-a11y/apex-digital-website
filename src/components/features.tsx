@@ -23,7 +23,6 @@ interface FeaturesProps {
 
 export function Features({ features, title = "Our Services", subtitle = "We deliver comprehensive digital solutions tailored to your business needs" }: FeaturesProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<HTMLDivElement[]>([]);
 
   useGSAP(
     () => {
@@ -88,7 +87,7 @@ export function Features({ features, title = "Our Services", subtitle = "We deli
         </header>
 
         <div className="grid-auto-fit" role="list">
-          {features.map((feature, index) => (
+          {features.map((feature) => (
             <article
               key={feature.title}
               className="feature-card card p-8 relative overflow-hidden group"

@@ -20,7 +20,7 @@ interface AboutProps {
   imageSrc?: string;
   imageAlt?: string;
   stats?: Stat[];
-  values?: Array<{ title: string; description: string }>;
+  values?: Array<{ title: string; description: string; icon: React.ReactNode }>;
 }
 
 export function About({
@@ -39,18 +39,38 @@ export function About({
     {
       title: "Innovation First",
       description: "We constantly push boundaries and explore new technologies to deliver cutting-edge solutions.",
+      icon: (
+        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      ),
     },
     {
       title: "Client Success",
       description: "Your success is our success. We're committed to delivering results that exceed expectations.",
+      icon: (
+        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20l5-10 5 10M4 12a3 3 0 013-3h10a3 3 0 013 3v6a3 3 0 01-3 3H7a3 3 0 01-3-3v-6z" />
+        </svg>
+      ),
     },
     {
       title: "Transparency",
       description: "Open communication and honest feedback are at the core of every relationship we build.",
+      icon: (
+        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      ),
     },
     {
       title: "Continuous Growth",
       description: "We never stop learning. Our team invests in constant skill development and knowledge sharing.",
+      icon: (
+        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ),
     },
   ],
 }: AboutProps) {
@@ -259,22 +279,7 @@ export function About({
                 className="value-card card p-6 md:p-8 text-center"
               >
                 <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d={
-                        index === 0
-                          ? "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                          : index === 1
-                          ? "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20l5-10 5 10M4 12a3 3 0 013-3h10a3 3 0 013 3v6a3 3 0 01-3 3H7a3 3 0 01-3-3v-6z"
-                          : index === 2
-                          ? "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                          : "M13 10V3L4 14h7v7l9-11h-7z"
-                      }
-                    />
-                  </svg>
+                  {value.icon}
                 </div>
                 <h4 className="heading-3 text-neutral-900 dark:text-neutral-100 mb-2">
                   {value.title}

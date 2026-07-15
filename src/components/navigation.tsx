@@ -198,7 +198,7 @@ export function Navigation() {
       {isMobileMenuOpen && (
         <div
           id="mobile-menu"
-          className="md:hidden overflow-hidden bg-white border-b border-neutral-200 dark:bg-neutral-950 dark:border-neutral-800 animate-slide-down"
+          className="md:hidden overflow-hidden bg-white border-b border-neutral-200 dark:bg-neutral-950 dark:border-neutral-800 animate-slide-up"
           role="dialog"
           aria-label="Mobile menu"
         >
