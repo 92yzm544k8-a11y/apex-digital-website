@@ -24,21 +24,21 @@ interface AboutProps {
 }
 
 export function About({
-  title = "About Us",
-  subtitle = "We're a team of passionate creators building digital experiences that matter",
-  description = "Founded in 2015, Apex Digital has grown from a small design studio into a full-service digital agency. We believe that great digital products are born from the intersection of strategy, design, and technology.",
+  title = "¿Qué es Eryon?",
+  subtitle = "Somos una empresa mexicana de software que construye sistemas operativos para negocios",
+  description = "Nacimos como Eryon y evolucionamos a Eryon. No hacemos páginas web. Construimos plataformas modulares —Eryon Ops— que resuelven la operación completa de tu negocio: ventas, inventario, finanzas, clientes, proveedores y más. Cada vertical es un sistema listo para implementar y personalizar al 100%.",
   imageSrc = "/about-image.jpg",
-  imageAlt = "Our team collaborating",
+  imageAlt = "Plataforma Eryon Ops",
   stats = [
-    { value: "50+", label: "Team Members" },
-    { value: "200+", label: "Projects Delivered" },
-    { value: "98%", label: "Client Satisfaction" },
-    { value: "15+", label: "Countries Served" },
+    { value: "16", label: "Verticales Especializadas" },
+    { value: "260+", label: "Módulos Funcionales" },
+    { value: "30", label: "Industrias en Catálogo" },
+    { value: "2", label: "Demos Funcionales" },
   ],
   values = [
     {
-      title: "Innovation First",
-      description: "We constantly push boundaries and explore new technologies to deliver cutting-edge solutions.",
+      title: "Producto, No Proyecto",
+      description: "No empezamos de cero. Cada vertical Eryon Ops hereda una plataforma probada con 260+ módulos. Implementamos, no inventamos.",
       icon: (
         <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -46,8 +46,8 @@ export function About({
       ),
     },
     {
-      title: "Client Success",
-      description: "Your success is our success. We're committed to delivering results that exceed expectations.",
+      title: "Personalización Real",
+      description: "Cada negocio es único. Tomamos la vertical base y la ajustamos a tu operación: módulos, roles, datos, flujos. Sin fórmulas genéricas.",
       icon: (
         <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20l5-10 5 10M4 12a3 3 0 013-3h10a3 3 0 013 3v6a3 3 0 01-3 3H7a3 3 0 01-3-3v-6z" />
@@ -55,8 +55,8 @@ export function About({
       ),
     },
     {
-      title: "Transparency",
-      description: "Open communication and honest feedback are at the core of every relationship we build.",
+      title: "Demo Antes que Nada",
+      description: "No te vendemos humo. Te mostramos una demo funcional de tu vertical en días. Pruebas, tocas, decides. Sin compromiso.",
       icon: (
         <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -64,8 +64,8 @@ export function About({
       ),
     },
     {
-      title: "Continuous Growth",
-      description: "We never stop learning. Our team invests in constant skill development and knowledge sharing.",
+      title: "Hecho en México",
+      description: "Equipo mexicano comprometido con estándares globales. Atención cercana, comunicación en español y conocimiento del mercado local.",
       icon: (
         <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -211,7 +211,7 @@ export function About({
               {stats.map((stat, index) => (
                 <div
                   key={stat.label}
-                  className="stat-item p-4 bg-neutral-50 dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800"
+                  className="stat-item glass-card p-4"
                   role="listitem"
                 >
                   <div
@@ -257,12 +257,12 @@ export function About({
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100">Excellence Award</p>
-                  <p className="text-xs text-neutral-500 dark:text-neutral-400">2024 Winner</p>
+                  <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100">Premio a la Excelencia</p>
+                  <p className="text-xs text-neutral-500 dark:text-neutral-400">Ganador 2024</p>
                 </div>
               </div>
               <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                Recognized for outstanding digital innovation and client satisfaction.
+                Reconocidos por innovación digital excepcional y satisfacción del cliente.
               </p>
             </div>
           </div>
@@ -270,13 +270,13 @@ export function About({
 
         <div className="mt-20">
           <h3 className="heading-3 text-center text-neutral-900 dark:text-neutral-100 mb-12">
-            Our Core Values
+            Nuestra Filosofía
           </h3>
           <div className="values-grid grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
               <article
                 key={value.title}
-                className="value-card card p-6 md:p-8 text-center"
+                className="value-card glass-card p-6 md:p-8 text-center"
               >
                 <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400">
                   {value.icon}

@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, FormEvent } from "react";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
@@ -88,16 +87,16 @@ export function ContactForm() {
   const validateField = (name: string, value: string): string | undefined => {
     switch (name) {
       case "name":
-        if (!value.trim()) return "Name is required";
-        if (value.trim().length < 2) return "Name must be at least 2 characters";
+        if (!value.trim()) return "El nombre es obligatorio";
+        if (value.trim().length < 2) return "El nombre debe tener al menos 2 caracteres";
         break;
       case "email":
-        if (!value.trim()) return "Email is required";
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return "Please enter a valid email address";
+        if (!value.trim()) return "El correo es obligatorio";
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return "Ingresa un correo válido";
         break;
       case "message":
-        if (!value.trim()) return "Message is required";
-        if (value.trim().length < 10) return "Message must be at least 10 characters";
+        if (!value.trim()) return "El mensaje es obligatorio";
+        if (value.trim().length < 10) return "El mensaje debe tener al menos 10 caracteres";
         break;
     }
     return undefined;
@@ -168,31 +167,31 @@ export function ContactForm() {
   };
 
   const projectTypes = [
-    { value: "", label: "Select project type" },
-    { value: "web-development", label: "Web Development" },
-    { value: "mobile-app", label: "Mobile Application" },
-    { value: "ui-ux-design", label: "UI/UX Design" },
-    { value: "branding", label: "Brand Identity" },
-    { value: "ecommerce", label: "E-commerce" },
-    { value: "digital-strategy", label: "Digital Strategy" },
-    { value: "other", label: "Other" },
+    { value: "", label: "Selecciona tipo de proyecto" },
+    { value: "web-3d", label: "Desarrollo Web 3D" },
+    { value: "ux-ui", label: "Diseño UX/UI" },
+    { value: "animation", label: "Animación Digital" },
+    { value: "branding", label: "Estrategia de Marca" },
+    { value: "webgl", label: "WebGL y Visualización" },
+    { value: "web-dev", label: "Desarrollo Web Full-Stack" },
+    { value: "other", label: "Otro" },
   ];
 
   const budgets = [
-    { value: "", label: "Select budget range" },
-    { value: "10k-25k", label: "$10,000 - $25,000" },
-    { value: "25k-50k", label: "$25,000 - $50,000" },
-    { value: "50k-100k", label: "$50,000 - $100,000" },
-    { value: "100k+", label: "$100,000+" },
-    { value: "not-sure", label: "Not sure yet" },
+    { value: "", label: "Selecciona rango de presupuesto" },
+    { value: "10k-25k", label: "$10,000 - $25,000 MXN" },
+    { value: "25k-50k", label: "$25,000 - $50,000 MXN" },
+    { value: "50k-100k", label: "$50,000 - $100,000 MXN" },
+    { value: "100k+", label: "$100,000+ MXN" },
+    { value: "not-sure", label: "Aún no lo sé" },
   ];
 
   const timelines = [
-    { value: "", label: "Select timeline" },
-    { value: "asap", label: "ASAP" },
-    { value: "1-2-months", label: "1-2 months" },
-    { value: "3-4-months", label: "3-4 months" },
-    { value: "5-6-months", label: "5-6 months" },
+    { value: "", label: "Selecciona tiempo estimado" },
+    { value: "asap", label: "Lo antes posible" },
+    { value: "1-2-months", label: "1-2 meses" },
+    { value: "3-4-months", label: "3-4 meses" },
+    { value: "5-6-months", label: "5-6 meses" },
     { value: "flexible", label: "Flexible" },
   ];
 
@@ -205,19 +204,19 @@ export function ContactForm() {
       <div className="container">
         <header className="section-header text-center mb-12">
           <h2 id="contact-heading" className="heading-2 text-neutral-900 dark:text-neutral-100">
-            Let's Start Your Project
+            Implementa Eryon en tu Negocio
           </h2>
           <p className="body-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-            Have a project in mind? We'd love to hear about it. Fill out the form and we'll get back to you within 24 hours.
+            Cuéntanos a qué te dedicas y en menos de 24 horas te presentamos la vertical que necesitas con una demo funcional.
           </p>
         </header>
 
         <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
           <div className="lg:col-span-1">
             <div className="space-y-6">
-              <div className="card p-6">
+              <div className="glass-card p-6">
                 <h3 className="heading-3 text-neutral-900 dark:text-neutral-100 mb-6">
-                  Get in Touch
+                  Contáctanos
                 </h3>
                 <div className="space-y-6" role="list" aria-label="Contact information">
                   <div className="contact-info-item flex items-start gap-4">
@@ -227,11 +226,26 @@ export function ContactForm() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="heading-4 text-neutral-900 dark:text-neutral-100">Email Us</h4>
-                      <a href="mailto:hello@apexdigital.com" className="text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
-                        hello@apexdigital.com
+                      <h4 className="heading-4 text-neutral-900 dark:text-neutral-100">Escríbenos</h4>
+                      <a href="mailto:eryon.mx@outlook.com" className="text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        eryon.mx@outlook.com
                       </a>
-                      <p className="text-sm text-neutral-500 dark:text-neutral-500 mt-1">We typically respond within 24 hours</p>
+                      <p className="text-sm text-neutral-500 dark:text-neutral-500 mt-1">Respondemos en menos de 24 horas</p>
+                    </div>
+                  </div>
+
+                  <div className="contact-info-item flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400" aria-hidden="true">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="heading-4 text-neutral-900 dark:text-neutral-100">Llámanos</h4>
+                      <a href="tel:+525542342675" className="text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        +52 (55) 4234 2675
+                      </a>
+                      <p className="text-sm text-neutral-500 dark:text-neutral-500 mt-1">Respuesta en minutos en horario laboral</p>
                     </div>
                   </div>
 
@@ -243,11 +257,11 @@ export function ContactForm() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="heading-4 text-neutral-900 dark:text-neutral-100">Our Office</h4>
+                      <h4 className="heading-4 text-neutral-900 dark:text-neutral-100">Ubicación</h4>
                       <address className="not-italic text-neutral-600 dark:text-neutral-400">
-                        123 Innovation Drive<br />
-                        San Francisco, CA 94102
+                        San Luis Potosí, México
                       </address>
+                      <p className="text-sm text-neutral-500 dark:text-neutral-500 mt-1">Disponibles para reuniones presenciales y virtuales</p>
                     </div>
                   </div>
 
@@ -258,17 +272,17 @@ export function ContactForm() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="heading-4 text-neutral-900 dark:text-neutral-100">Business Hours</h4>
+                      <h4 className="heading-4 text-neutral-900 dark:text-neutral-100">Horario</h4>
                       <p className="text-neutral-600 dark:text-neutral-400">
-                        Mon - Fri: 9:00 AM - 6:00 PM PST
+                        Lun - Vie: 10:00 AM - 6:00 PM CST
                       </p>
-                      <p className="text-sm text-neutral-500 dark:text-neutral-500 mt-1">Closed weekends & holidays</p>
+                      <p className="text-sm text-neutral-500 dark:text-neutral-500 mt-1">Cerrado fines de semana y festivos</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="card p-6 border-primary-200 dark:border-primary-800 bg-primary-50/50 dark:bg-primary-900/10">
+              <div className="glass-card p-6">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary-600 flex items-center justify-center text-white" aria-hidden="true">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -276,10 +290,10 @@ export function ContactForm() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="heading-4 text-neutral-900 dark:text-neutral-100">Prefer a call?</h4>
-                    <p className="text-neutral-600 dark:text-neutral-400 mt-1">Schedule a free 30-minute consultation</p>
+                    <h4 className="heading-4 text-neutral-900 dark:text-neutral-100">¿Prefieres una llamada?</h4>
+                    <p className="text-neutral-600 dark:text-neutral-400 mt-1">Agenda una consultoría gratuita de 30 minutos</p>
                     <a href="/contact#schedule" className="inline-flex items-center gap-2 mt-3 text-primary-600 dark:text-primary-400 font-medium hover:text-primary-700 dark:hover:text-primary-300 transition-colors">
-                      Book a Call
+                      Agenda una Llamada
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                       </svg>
@@ -292,43 +306,43 @@ export function ContactForm() {
 
           <div className="lg:col-span-2">
             {submitStatus === "success" ? (
-              <div className="card p-8 text-center" role="alert">
+              <div className="glass-card p-8 text-center" role="alert">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 mb-6" aria-hidden="true">
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="heading-2 text-neutral-900 dark:text-neutral-100 mb-3">Message Sent!</h3>
+                <h3 className="heading-2 text-neutral-900 dark:text-neutral-100 mb-3">¡Mensaje Enviado!</h3>
                 <p className="body-lg text-neutral-600 dark:text-neutral-400 mb-6">
-                  Thank you for reaching out. We'll get back to you within 24 hours.
+                  Gracias por contactarnos. Te responderemos en menos de 24 horas.
                 </p>
                 <button
                   type="button"
                   onClick={() => setSubmitStatus("idle")}
                   className="btn btn-primary"
                 >
-                  Send Another Message
+                  Enviar Otro Mensaje
                 </button>
               </div>
             ) : (
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="card p-6 lg:p-8"
+                className="glass-card p-6 lg:p-8"
                 noValidate
                 aria-label="Contact form"
               >
                 {submitStatus === "error" && (
                   <div className="mb-6 p-4 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400" role="alert">
-                    <p className="font-medium">Something went wrong</p>
-                    <p className="text-sm mt-1">Please try again later or email us directly at hello@apexdigital.com</p>
+                    <p className="font-medium">Algo salió mal</p>
+                    <p className="text-sm mt-1">Intenta de nuevo más tarde o escríbenos directamente a eryon.mx@outlook.com</p>
                   </div>
                 )}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="form-field">
                     <label htmlFor="name" className="label">
-                      Full Name <span className="text-red-500" aria-hidden="true">*</span>
+                      Nombre Completo <span className="text-red-500" aria-hidden="true">*</span>
                     </label>
                     <input
                       type="text"
@@ -338,7 +352,7 @@ export function ContactForm() {
                       onChange={handleChange}
                       onBlur={handleBlur}
                       className={`input ${errors.name ? "border-red-500 focus:border-red-500 focus:ring-red-500" : ""}`}
-                      placeholder="John Doe"
+                      placeholder="Tu nombre"
                       aria-describedby={errors.name ? "name-error" : undefined}
                       aria-invalid={errors.name ? "true" : "false"}
                       disabled={isSubmitting}
@@ -352,7 +366,7 @@ export function ContactForm() {
 
                   <div className="form-field">
                     <label htmlFor="email" className="label">
-                      Email Address <span className="text-red-500" aria-hidden="true">*</span>
+                      Correo Electrónico <span className="text-red-500" aria-hidden="true">*</span>
                     </label>
                     <input
                       type="email"
@@ -362,7 +376,7 @@ export function ContactForm() {
                       onChange={handleChange}
                       onBlur={handleBlur}
                       className={`input ${errors.email ? "border-red-500 focus:border-red-500 focus:ring-red-500" : ""}`}
-                      placeholder="john@company.com"
+                      placeholder="correo@empresa.com"
                       aria-describedby={errors.email ? "email-error" : undefined}
                       aria-invalid={errors.email ? "true" : "false"}
                       disabled={isSubmitting}
@@ -376,7 +390,7 @@ export function ContactForm() {
 
                   <div className="form-field">
                     <label htmlFor="company" className="label">
-                      Company
+                      Empresa
                     </label>
                     <input
                       type="text"
@@ -385,14 +399,14 @@ export function ContactForm() {
                       value={formData.company}
                       onChange={handleChange}
                       className="input"
-                      placeholder="Acme Inc."
+                      placeholder="Tu empresa"
                       disabled={isSubmitting}
                     />
                   </div>
 
                   <div className="form-field">
                     <label htmlFor="projectType" className="label">
-                      Project Type
+                      Tipo de Proyecto
                     </label>
                     <select
                       id="projectType"
@@ -412,7 +426,7 @@ export function ContactForm() {
 
                   <div className="form-field">
                     <label htmlFor="budget" className="label">
-                      Budget Range
+                      Presupuesto
                     </label>
                     <select
                       id="budget"
@@ -432,7 +446,7 @@ export function ContactForm() {
 
                   <div className="form-field">
                     <label htmlFor="timeline" className="label">
-                      Timeline
+                      Tiempo Estimado
                     </label>
                     <select
                       id="timeline"
@@ -453,7 +467,7 @@ export function ContactForm() {
 
                 <div className="form-field mt-6">
                   <label htmlFor="message" className="label">
-                    Project Details <span className="text-red-500" aria-hidden="true">*</span>
+                      Detalles del Proyecto <span className="text-red-500" aria-hidden="true">*</span>
                   </label>
                   <textarea
                     id="message"
@@ -463,13 +477,13 @@ export function ContactForm() {
                     onBlur={handleBlur}
                     rows={5}
                     className={`input resize-y ${errors.message ? "border-red-500 focus:border-red-500 focus:ring-red-500" : ""}`}
-                    placeholder="Tell us about your project, goals, and any specific requirements..."
+                    placeholder="Cuéntanos sobre tu proyecto, objetivos y requerimientos..."
                     aria-describedby={errors.message ? "message-error" : "message-hint"}
                     aria-invalid={errors.message ? "true" : "false"}
                     disabled={isSubmitting}
                   />
                   <p id="message-hint" className="mt-1.5 text-sm text-neutral-500 dark:text-neutral-500">
-                    Minimum 10 characters
+                    Mínimo 10 caracteres
                   </p>
                   {errors.message && (
                     <p id="message-error" className="mt-1.5 text-sm text-red-500" role="alert">
@@ -490,19 +504,19 @@ export function ContactForm() {
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                         </svg>
-                        Sending...
+                        Enviando...
                       </>
                     ) : (
-                      "Send Message"
+                      "Enviar Mensaje"
                     )}
                   </button>
                 </div>
 
                 <p className="text-xs text-neutral-500 dark:text-neutral-500 text-center mt-4">
-                  By submitting this form, you agree to our{" "}
-                  <a href="/privacy" className="underline hover:text-primary-600 dark:hover:text-primary-400">Privacy Policy</a>
-                  {" and "}
-                  <a href="/terms" className="underline hover:text-primary-600 dark:hover:text-primary-400">Terms of Service</a>
+                  Al enviar este formulario, aceptas nuestra{" "}
+                  <a href="/privacy" className="underline hover:text-primary-600 dark:hover:text-primary-400">Política de Privacidad</a>
+                  {" y "}
+                  <a href="/terms" className="underline hover:text-primary-600 dark:hover:text-primary-400">Términos del Servicio</a>
                 </p>
               </form>
             )}

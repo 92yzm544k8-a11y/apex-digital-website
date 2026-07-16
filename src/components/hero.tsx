@@ -22,12 +22,12 @@ interface HeroProps {
 
 export function Hero({
   variant = "home",
-  title = "Digital Solutions That Drive Growth",
-  subtitle = "We craft innovative digital experiences that transform businesses and delight users. From strategy to execution, we're your partner in digital transformation.",
-  ctaText = "Start Your Project",
+  title = "Implementamos el Sistema Operativo de tu Negocio",
+  subtitle = "No vendemos sitios web. Implementamos Eryon Ops, el sistema operativo modular que transforma la operación de tu industria. 16 verticales especializadas, una plataforma, cien por ciento personalizable.",
+  ctaText = "Solicitar Diagnóstico",
   ctaHref = "/contact",
-  secondaryCtaText = "View Our Work",
-  secondaryCtaHref = "/work",
+  secondaryCtaText = "Ver Verticales",
+  secondaryCtaHref = "/services",
 }: HeroProps) {
   const heroRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -162,10 +162,10 @@ export function Hero({
   );
 
   const stats = [
-    { value: "200+", label: "Projects Delivered" },
-    { value: "50+", label: "Happy Clients" },
-    { value: "15+", label: "Team Members" },
-    { value: "98%", label: "Client Retention" },
+    { value: "16", label: "Verticales Especializadas" },
+    { value: "260+", label: "Módulos Funcionales" },
+    { value: "30", label: "Industrias en Catálogo" },
+    { value: "2", label: "Demos Funcionales" },
   ];
 
   return (
@@ -194,7 +194,7 @@ export function Hero({
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500" />
             </span>
             <span className="text-sm font-medium text-primary-700 dark:text-primary-300">
-              Award-winning Digital Agency
+              Eryon
             </span>
           </div>
 
@@ -205,9 +205,9 @@ export function Hero({
           >
             {variant === "home" ? (
               <>
-                Digital Solutions That
+                El Sistema Operativo
                 <br />
-                <span className="gradient-text">Drive Growth</span>
+                <span className="gradient-text">que tu Industria Necesita</span>
               </>
             ) : (
               title
@@ -267,7 +267,7 @@ export function Hero({
               <div ref={scrollIndicatorRef} className="animate-bounce-slow" aria-hidden="true">
                 <div className="flex flex-col items-center gap-2 text-neutral-400 dark:text-neutral-600">
                   <span className="text-xs font-medium uppercase tracking-wider">
-                    Scroll to explore
+                    Desplázate para explorar
                   </span>
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />

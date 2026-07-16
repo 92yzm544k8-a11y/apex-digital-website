@@ -26,8 +26,8 @@ interface TestimonialsProps {
 
 export function Testimonials({
   testimonials,
-  title = "What Our Clients Say",
-  subtitle = "Don't just take our word for it. Hear from the businesses we've helped transform.",
+  title = "Resultados Reales",
+  subtitle = "Empresas mexicanas que ya operan con Eryon Ops. Conoce sus historias.",
 }: TestimonialsProps) {
   const containerRef = useRef<HTMLElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -107,7 +107,7 @@ export function Testimonials({
             {testimonials.map((testimonial, index) => (
               <article
                 key={testimonial.id}
-                className={`testimonial-card card p-6 lg:p-8 relative ${index === currentIndex ? "ring-2 ring-primary-500/50" : ""}`}
+                className={`testimonial-card glass-card p-6 lg:p-8 relative ${index === currentIndex ? "ring-2 ring-primary-500/50" : ""}`}
                 role="listitem"
                 aria-hidden={index !== currentIndex}
               >
@@ -212,56 +212,29 @@ export function Testimonials({
 export const defaultTestimonials: Testimonial[] = [
   {
     id: "1",
-    quote: "Apex Digital transformed our outdated platform into a modern, scalable solution that increased our conversion rate by 40%. Their attention to detail and technical expertise is unmatched.",
-    author: "Sarah Chen",
-    role: "CTO",
-    company: "TechFlow Inc.",
+    quote: "Eryon DealerOps transformó por completo nuestra operación. Pasamos de 5 sistemas aislados a una sola plataforma que controla inventario, taller, CRM y finanzas. Nuestro equipo vende el doble en la mitad del tiempo.",
+    author: "Roberta Martínez",
+    role: "Directora General",
+    company: "Grupo Automotriz MX",
     rating: 5,
-    project: "E-commerce Platform Redesign",
+    project: "Eryon DealerOps — SemiPro",
   },
   {
     id: "2",
-    quote: "Working with Apex was a game-changer for our startup. They didn't just build our app—they became true partners, guiding us through product strategy and helping us raise our Series A.",
-    author: "Marcus Johnson",
-    role: "Founder & CEO",
-    company: "HealthSync",
+    quote: "Llevábamos años buscando un sistema que entendiera cómo opera una asociación civil. Eryon CivicOps no solo nos dio control financiero total, sino que conectó a nuestras familias, donadores y proyectos productivos en un solo lugar.",
+    author: "Andrés González",
+    role: "Director",
+    company: "Intégrame Down AC",
     rating: 5,
-    project: "Mobile Health Application",
+    project: "Eryon CivicOps",
   },
   {
     id: "3",
-    quote: "The design system Apex created for us has become the foundation of our entire product suite. It's saved us countless hours and ensured consistency across all our digital touchpoints.",
-    author: "Emily Rodriguez",
-    role: "VP of Product",
-    company: "FinanceFirst",
+    quote: "Eryon LegalOps transformó la operación de nuestro despacho. Control de expedientes, diligencias automatizadas, facturación electrónica y dashboard de métricas en un solo sistema. Lo que antes nos tomaba días ahora lo hacemos en horas.",
+    author: "Alejandro Villarreal",
+    role: "Socio Director",
+    company: "AVK LegalOps",
     rating: 5,
-    project: "Design System & UI Library",
-  },
-  {
-    id: "4",
-    quote: "Their strategic approach to our digital transformation was exactly what we needed. They understood our business goals and delivered a roadmap that aligned perfectly with our vision.",
-    author: "David Park",
-    role: "Chief Digital Officer",
-    company: "GlobalLogistics",
-    rating: 5,
-    project: "Digital Transformation Strategy",
-  },
-  {
-    id: "5",
-    quote: "The team at Apex Digital is professional, creative, and incredibly responsive. Our new brand identity has received overwhelmingly positive feedback from both customers and investors.",
-    author: "Lisa Thompson",
-    role: "Marketing Director",
-    company: "GreenEarth Solutions",
-    rating: 5,
-    project: "Complete Rebrand",
-  },
-  {
-    id: "6",
-    quote: "From concept to launch, Apex delivered excellence at every stage. Our new customer portal reduced support tickets by 60% and significantly improved customer satisfaction scores.",
-    author: "Robert Kim",
-    role: "Head of Customer Experience",
-    company: "EduTech Academy",
-    rating: 5,
-    project: "Customer Portal Development",
+    project: "Eryon LegalOps",
   },
 ];

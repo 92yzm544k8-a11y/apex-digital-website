@@ -3,60 +3,45 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
 
 const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "Work", href: "/work" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  { name: "Inicio", href: "/" },
+  { name: "Verticales", href: "/services" },
+  { name: "Casos", href: "/work" },
+  { name: "Eryon", href: "/about" },
+  { name: "Contacto", href: "/contact" },
 ];
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const [progress, setProgress] = useState(0);
   const pathname = usePathname();
-  const navRef = useRef<HTMLElement>(null);
+  const lastScrollRef = useRef(0);
 
   useEffect(() => {
     setIsClient(true);
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const sy = window.scrollY;
+      setIsScrolled(sy > 20);
+      setIsHidden(sy > 120 && sy > lastScrollRef.current);
+      lastScrollRef.current = sy;
+
+      const dh = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(dh > 0 ? Math.min((sy / dh) * 100, 100) : 0);
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useGSAP(
-    () => {
-      if (!isClient) return;
-      const ctx = gsap.context(() => {
-        gsap.fromTo(
-          ".nav-link",
-          { opacity: 0, y: -20 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power3.out",
-            stagger: 0.1,
-            delay: 0.3,
-          }
-        );
-      }, navRef);
-      return () => ctx.revert();
-    },
-    { scope: navRef }
-  );
-
   if (!isClient) {
     return (
       <nav
-        ref={navRef}
-        className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-200 dark:bg-neutral-950/80 dark:border-neutral-800"
+        className="fixed top-0 left-0 right-0 z-50 nav-glass"
         role="navigation"
         aria-label="Main navigation"
       >
@@ -65,10 +50,9 @@ export function Navigation() {
             <Link
               href="/"
               className="flex items-center gap-2 text-xl font-bold text-neutral-900 dark:text-neutral-100"
-              aria-label="Apex Digital Home"
+              aria-label="Eryon Home"
             >
-              <span className="gradient-text">Apex</span>
-              <span className="text-neutral-600 dark:text-neutral-400">Digital</span>
+              <span className="gradient-text">Eryon</span> México
             </Link>
             <div className="hidden md:flex items-center gap-8">
               {navigation.map((item) => (
@@ -101,11 +85,8 @@ export function Navigation() {
 
   return (
     <nav
-      ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-neutral-200 shadow-sm dark:bg-neutral-950/95 dark:border-neutral-800"
-          : "bg-white/80 backdrop-blur-md border-b border-neutral-200 dark:bg-neutral-950/80 dark:border-neutral-800"
+      className={`fixed top-0 left-0 right-0 z-50 nav-glass transition-transform duration-500 ease-out ${
+        isHidden ? "nav-hidden" : "translate-y-0"
       }`}
       role="navigation"
       aria-label="Main navigation"
@@ -115,10 +96,9 @@ export function Navigation() {
           <Link
             href="/"
             className="flex items-center gap-2 text-xl font-bold text-neutral-900 dark:text-neutral-100"
-            aria-label="Apex Digital Home"
+            aria-label="Eryon Home"
           >
-            <span className="gradient-text">Apex</span>
-            <span className="text-neutral-600 dark:text-neutral-400">Digital</span>
+            <span className="gradient-text">Eryon</span> México
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -194,6 +174,8 @@ export function Navigation() {
           </button>
         </div>
       </div>
+
+      <div className="nav-progress" style={{ width: progress + "%" }} />
 
       {isMobileMenuOpen && (
         <div

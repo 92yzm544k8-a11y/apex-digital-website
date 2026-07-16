@@ -28,12 +28,12 @@ interface PortfolioProps {
   showFilter?: boolean;
 }
 
-const categories = ["All", "Web Development", "Mobile Apps", "Branding", "UI/UX Design", "E-commerce"];
+const categories = ["Todos", "Automotriz", "Asociaciones", "Comercio", "Salud", "Educación"];
 
 export function Portfolio({
   projects,
-  title = "Our Work",
-  subtitle = "A collection of our recent projects showcasing digital innovation and creative solutions",
+  title = "Verticales en Acción",
+  subtitle = "Dos de nuestras 16 verticales ya operan como sistemas funcionales. El resto están listas para implementarse en tu negocio.",
   showFilter = true,
 }: PortfolioProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -142,7 +142,7 @@ export function Portfolio({
           {projects.map((project, index) => (
             <article
               key={project.id}
-              className="project-card card relative overflow-hidden group"
+              className="project-card glass-card relative overflow-hidden group"
               role="listitem"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -153,6 +153,12 @@ export function Portfolio({
                   className="object-cover transition-all duration-700 ease-out group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
+                <div className="absolute bottom-0 left-0 right-0 py-2 px-4 bg-gradient-to-t from-neutral-900/60 to-transparent">
+                  <span className="text-xs text-white/70 flex items-center gap-1 group-hover:opacity-0 transition-opacity duration-200">
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                    Ver detalle
+                  </span>
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 via-neutral-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
                 
                 <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
@@ -178,7 +184,7 @@ export function Portfolio({
                         href={project.caseStudyLink}
                         className="btn btn-primary text-sm px-4 py-2"
                       >
-                        Case Study
+                        Caso de Estudio
                       </a>
                     )}
                     {project.link && (
@@ -188,7 +194,7 @@ export function Portfolio({
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Live Site
+                        Sitio Web
                         <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
@@ -231,7 +237,7 @@ export function Portfolio({
 
         <div className="text-center mt-12">
           <Link href="/work" className="btn btn-secondary">
-            View All Projects
+            Ver Todos los Proyectos
             <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>

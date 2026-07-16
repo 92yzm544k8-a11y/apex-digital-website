@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,11 +19,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Apex Digital | Transforming Ideas into Digital Reality",
-    template: "%s | Apex Digital",
+    default: "Eryon | Transforming Ideas into Digital Reality",
+    template: "%s | Eryon",
   },
   description:
-    "Apex Digital is a leading digital agency specializing in web development, mobile apps, and digital transformation. We build innovative solutions that drive growth.",
+    "Eryon is a leading digital agency specializing in web development, mobile apps, and digital transformation. We build innovative solutions that drive growth.",
   keywords: [
     "digital agency",
     "web development",
@@ -31,39 +32,39 @@ export const metadata: Metadata = {
     "software development",
     "UX design",
   ],
-  authors: [{ name: "Apex Digital" }],
-  creator: "Apex Digital",
-  publisher: "Apex Digital",
+  authors: [{ name: "Eryon" }],
+  creator: "Eryon",
+  publisher: "Eryon",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://apex-digital.com"),
+  metadataBase: new URL("https://eryon.studio"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://apex-digital.com",
-    siteName: "Apex Digital",
-    title: "Apex Digital | Transforming Ideas into Digital Reality",
+    url: "https://eryon.studio",
+    siteName: "Eryon",
+    title: "Eryon | Transforming Ideas into Digital Reality",
     description:
-      "Apex Digital is a leading digital agency specializing in web development, mobile apps, and digital transformation.",
+      "Eryon is a leading digital agency specializing in web development, mobile apps, and digital transformation.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Apex Digital - Digital Agency",
+        alt: "Eryon - Digital Agency",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Apex Digital | Transforming Ideas into Digital Reality",
+    title: "Eryon | Transforming Ideas into Digital Reality",
     description:
-      "Apex Digital is a leading digital agency specializing in web development, mobile apps, and digital transformation.",
+      "Eryon is a leading digital agency specializing in web development, mobile apps, and digital transformation.",
     images: ["/og-image.png"],
-    creator: "@apexdigital",
+    creator: "@eryonmx",
   },
   robots: {
     index: true,
@@ -110,11 +111,28 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var theme = localStorage.getItem('theme');
+                if (theme === 'light' || (!theme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+                  document.documentElement.setAttribute('data-theme', 'light');
+                } else {
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                }
+              })();
+            `,
+          }}
+        />
       </head>
       <body className="min-h-full flex flex-col bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+        <div id="cursor-dot" />
+        <div id="cursor-ring" />
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
+        <AnalyticsTracker />
         {children}
       </body>
     </html>

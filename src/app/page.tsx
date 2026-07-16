@@ -1,4 +1,3 @@
-import { GSAPProvider } from "@/lib/gsap-hooks";
 import { Navigation } from "@/components/navigation";
 import { Hero } from "@/components/hero";
 import { Features } from "@/components/features";
@@ -8,134 +7,139 @@ import { Services, defaultServices } from "@/components/services";
 import { Testimonials, defaultTestimonials } from "@/components/testimonials";
 import { ContactForm } from "@/components/contact-form";
 import { Footer } from "@/components/footer";
+import ThreeBackground from "@/components/ThreeBackground";
+import LenisProvider from "@/components/LenisProvider";
+import Cursor from "@/components/Cursor";
 
 const features = [
   {
-    title: "Lightning Fast Performance",
-    description: "Optimized code, efficient algorithms, and modern infrastructure ensure your digital products load instantly and scale effortlessly.",
+    title: "Modular y Escalable",
+    description: "Más de 260 módulos funcionales en catálogo. Tu sistema crece contigo: empieza con lo esencial y agrega módulos cuando los necesites.",
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    ),
+    link: "/services",
+  },
+  {
+    title: "Control de Acceso por Roles",
+    description: "Cada usuario ve solo lo que necesita. Permisos granulares por módulo: dueño, gerente, vendedor, operativo, cliente. Seguridad desde el diseño.",
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+      </svg>
+    ),
+    link: "/services",
+  },
+  {
+    title: "Demo Funcional en Días",
+    description: "SPA vanilla con Liquid Glass UI, datos semilla y estado reiniciable. Implementamos tu vertical y la ponemos en tus manos para prueba en tiempo récord.",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
-    link: "/services/performance",
+    link: "/services",
   },
   {
-    title: "Beautiful User Experience",
-    description: "Human-centered design that delights users and drives engagement. Every interaction is crafted with intention and tested for accessibility.",
+    title: "Lista para Producción",
+    description: "Arquitectura PWA desplegable en Cloudflare Pages o Netlify. De la demo a producción sin fricción. Backend real cuando lo necesites.",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17a.002.002 0 11-.004-.004.002.002 0 01.004.004z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    link: "/services/design",
-  },
-  {
-    title: "Scalable Architecture",
-    description: "Future-proof systems built with clean architecture principles. Microservices, serverless, and cloud-native patterns that grow with your business.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-      </svg>
-    ),
-    link: "/services/architecture",
-  },
-  {
-    title: "Continuous Innovation",
-    description: "Stay ahead with our R&D approach. We explore emerging technologies and apply them practically to give you a competitive edge.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-      </svg>
-    ),
-    link: "/services/innovation",
+    link: "/services",
   },
 ];
 
 const projects = [
   {
     id: "1",
-    title: "FinTech Dashboard",
-    category: "Web Development",
-    description: "Real-time financial analytics platform with advanced charting, customizable widgets, and secure data visualization for enterprise clients.",
+    title: "SemiPro — Eryon DealerOps",
+    category: "Agencias Automotrices",
+    description: "Sistema de gestión integral para agencias de autos seminuevos. Inventario, CRM con pipeline Kanban, taller de reacondicionamiento, documentación REPUVE/NOM-122, finanzas y multi-sucursal.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-    tags: ["React", "TypeScript", "D3.js", "Node.js"],
+    tags: ["SPA Vanilla", "Liquid Glass UI", "localStorage", "15 Módulos"],
     results: [
-      { label: "faster load times", value: "40%" },
-      { label: "user adoption", value: "85%" },
+      { label: "módulos funcionales", value: "15" },
+      { label: "roles de usuario", value: "6" },
     ],
-    caseStudyLink: "/work/fintech-dashboard",
+    caseStudyLink: "/work/semipro",
   },
   {
     id: "2",
-    title: "HealthTrack Mobile App",
-    category: "Mobile Apps",
-    description: "Cross-platform health monitoring application with AI-powered insights, wearable integration, and HIPAA-compliant data handling.",
+    title: "Intégrame Down AC — Eryon CivicOps",
+    category: "Asociaciones Civiles",
+    description: "Plataforma integral para asociación civil que conecta familias, donadores, staff y proyectos productivos. Incluye Academia21, Japi Helados, Laboral21 y SublimaT en un solo sistema.",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop",
-    tags: ["React Native", "Python", "AWS", "TensorFlow"],
+    tags: ["SPA Vanilla", "Teal Theme", "8 Grupos", "40+ Módulos"],
     results: [
-      { label: "downloads in 6 months", value: "150K+" },
-      { label: "user retention", value: "92%" },
+      { label: "módulos funcionales", value: "40+" },
+      { label: "usuarios simultáneos", value: "9" },
     ],
-    caseStudyLink: "/work/healthtrack",
+    caseStudyLink: "/work/integrame",
   },
   {
     id: "3",
-    title: "EcoCommerce Platform",
-    category: "E-commerce",
-    description: "Sustainable marketplace connecting eco-conscious brands with consumers. Features carbon footprint tracking and green certifications.",
+    title: "Eryon RetailOps",
+    category: "Comercio Minorista",
+    description: "Sistema de gestión operativa y comercial para tiendas y comercios minoristas. Punto de venta, inventario, CRM de clientes, proveedores, promociones y reportes de ventas. Listo para implementar.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    tags: ["Next.js", "PostgreSQL", "Stripe", "Vercel"],
+    tags: ["En Cartera", "Módulos Definidos", "Disponible"],
     results: [
-      { label: "conversion increase", value: "60%" },
-      { label: "revenue growth", value: "300%" },
+      { label: "módulos planeados", value: "10" },
+      { label: "estado", value: "Listo" },
     ],
-    caseStudyLink: "/work/ecocommerce",
+    caseStudyLink: "/work/retailops",
   },
   {
     id: "4",
-    title: "Enterprise Design System",
-    category: "UI/UX Design",
-    description: "Comprehensive design system with 200+ components, documentation, and governance tools for a Fortune 500 company's digital transformation.",
+    title: "Eryon GastroOps",
+    category: "Restaurantes / Alimentos",
+    description: "Gestión operativa completa para restaurantes, bares y negocios de alimentos. Menú digital, comandas, inventario de cocina, reservaciones, pedidos a domicilio y finanzas.",
     image: "https://images.unsplash.com/photo-1558655146-9f40138eddea?w=800&h=600&fit=crop",
-    tags: ["Figma", "Storybook", "React", "Design Tokens"],
+    tags: ["En Cartera", "Módulos Definidos", "Disponible"],
     results: [
-      { label: "design consistency", value: "100%" },
-      { label: "development speed", value: "2.5x" },
+      { label: "módulos planeados", value: "10" },
+      { label: "estado", value: "Listo" },
     ],
-    caseStudyLink: "/work/design-system",
+    caseStudyLink: "/work/gastroops",
   },
   {
     id: "5",
-    title: "SaaS Analytics Suite",
-    category: "Web Development",
-    description: "Business intelligence platform with custom dashboards, automated reporting, and predictive analytics for SaaS companies.",
+    title: "Eryon MediOps",
+    category: "Clínicas / Salud",
+    description: "Plataforma administrativa y operativa para clínicas, consultorios y centros de salud. Agenda de citas, expediente clínico, facturación electrónica, inventario de insumos y dashboard de indicadores.",
     image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
-    tags: ["Vue.js", "Go", "ClickHouse", "Kubernetes"],
+    tags: ["En Cartera", "Módulos Definidos", "Disponible"],
     results: [
-      { label: "query performance", value: "10x" },
-      { label: "customer satisfaction", value: "4.9/5" },
+      { label: "módulos planeados", value: "10" },
+      { label: "estado", value: "Listo" },
     ],
-    caseStudyLink: "/work/saas-analytics",
+    caseStudyLink: "/work/mediops",
   },
   {
     id: "6",
-    title: "Brand Identity Overhaul",
-    category: "Branding",
-    description: "Complete rebranding for a global logistics company including logo, visual language, brand guidelines, and multi-channel rollout.",
+    title: "Eryon EduOps",
+    category: "Educación / Academias",
+    description: "Sistema de gestión administrativa y académica para instituciones educativas. Control escolar, calificaciones, horarios, pagos de colegiaturas y comunicación con padres.",
     image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop",
-    tags: ["Brand Strategy", "Visual Identity", "Guidelines", "Marketing"],
+    tags: ["En Cartera", "Módulos Definidos", "Disponible"],
     results: [
-      { label: "brand recognition", value: "45%" },
-      { label: "employee pride", value: "91%" },
+      { label: "módulos planeados", value: "11" },
+      { label: "estado", value: "Listo" },
     ],
-    caseStudyLink: "/work/logistics-rebrand",
+    caseStudyLink: "/work/eduops",
   },
 ];
 
 export default function HomePage() {
   return (
-    <GSAPProvider>
+    <LenisProvider>
+      <ThreeBackground />
+      <Cursor />
       <Navigation />
       <main id="main-content" className="flex-1">
         <Hero />
@@ -147,6 +151,6 @@ export default function HomePage() {
         <ContactForm />
       </main>
       <Footer />
-    </GSAPProvider>
+    </LenisProvider>
   );
 }

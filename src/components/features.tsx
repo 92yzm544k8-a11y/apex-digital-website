@@ -21,7 +21,7 @@ interface FeaturesProps {
   subtitle?: string;
 }
 
-export function Features({ features, title = "Our Services", subtitle = "We deliver comprehensive digital solutions tailored to your business needs" }: FeaturesProps) {
+export function Features({ features, title = "La Plataforma", subtitle = "Detrás de cada vertical Eryon Ops hay una plataforma modular probada: Eryon OS. Misma arquitectura, misma calidad, personalizada al 100% para tu operación." }: FeaturesProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -90,7 +90,7 @@ export function Features({ features, title = "Our Services", subtitle = "We deli
           {features.map((feature) => (
             <article
               key={feature.title}
-              className="feature-card card p-8 relative overflow-hidden group"
+              className="feature-card glass-card p-8 relative overflow-hidden group"
               role="listitem"
             >
               <div
@@ -113,7 +113,7 @@ export function Features({ features, title = "Our Services", subtitle = "We deli
                   href={feature.link}
                   className="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 font-medium hover:gap-3 transition-all duration-200"
                 >
-                  Learn more
+                  Saber más
                   <svg
                     className="w-5 h-5 transition-transform group-hover:translate-x-1"
                     fill="none"
