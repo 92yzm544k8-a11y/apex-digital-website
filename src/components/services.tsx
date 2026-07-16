@@ -134,7 +134,7 @@ export function Services({
           {services.map((service, index) => (
             <article
               key={service.id}
-              className="service-card glass-card p-6 lg:p-8 group relative overflow-hidden"
+              className="service-card card glass-card p-6 lg:p-8 group relative overflow-hidden"
               role="listitem"
             >
               <div

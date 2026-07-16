@@ -142,7 +142,7 @@ export function Portfolio({
           {projects.map((project, index) => (
             <article
               key={project.id}
-              className="project-card glass-card relative overflow-hidden group"
+              className="project-card card glass-card relative overflow-hidden group"
               role="listitem"
             >
               <div className="relative aspect-[4/3] overflow-hidden">

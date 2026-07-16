@@ -90,7 +90,7 @@ export function Features({ features, title = "La Plataforma", subtitle = "Detrá
           {features.map((feature) => (
             <article
               key={feature.title}
-              className="feature-card glass-card p-8 relative overflow-hidden group"
+              className="feature-card card glass-card p-8 relative overflow-hidden group"
               role="listitem"
             >
               <div

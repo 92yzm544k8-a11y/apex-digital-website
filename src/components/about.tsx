@@ -211,7 +211,7 @@ export function About({
               {stats.map((stat, index) => (
                 <div
                   key={stat.label}
-                  className="stat-item glass-card p-4"
+                  className="stat-item card glass-card p-4"
                   role="listitem"
                 >
                   <div
@@ -276,7 +276,7 @@ export function About({
             {values.map((value, index) => (
               <article
                 key={value.title}
-                className="value-card glass-card p-6 md:p-8 text-center"
+                className="value-card card glass-card p-6 md:p-8 text-center"
               >
                 <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400">
                   {value.icon}

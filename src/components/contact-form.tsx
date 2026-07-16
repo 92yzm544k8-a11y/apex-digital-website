@@ -214,7 +214,7 @@ export function ContactForm() {
         <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
           <div className="lg:col-span-1">
             <div className="space-y-6">
-              <div className="glass-card p-6">
+              <div className="card glass-card p-6">
                 <h3 className="heading-3 text-neutral-900 dark:text-neutral-100 mb-6">
                   Contáctanos
                 </h3>
@@ -282,7 +282,7 @@ export function ContactForm() {
                 </div>
               </div>
 
-              <div className="glass-card p-6">
+              <div className="card glass-card p-6">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary-600 flex items-center justify-center text-white" aria-hidden="true">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -306,7 +306,7 @@ export function ContactForm() {
 
           <div className="lg:col-span-2">
             {submitStatus === "success" ? (
-              <div className="glass-card p-8 text-center" role="alert">
+              <div className="card glass-card p-8 text-center" role="alert">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 mb-6" aria-hidden="true">
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -328,7 +328,7 @@ export function ContactForm() {
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="glass-card p-6 lg:p-8"
+                className="card glass-card p-6 lg:p-8"
                 noValidate
                 aria-label="Contact form"
               >

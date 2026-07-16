@@ -107,7 +107,7 @@ export function Testimonials({
             {testimonials.map((testimonial, index) => (
               <article
                 key={testimonial.id}
-                className={`testimonial-card glass-card p-6 lg:p-8 relative ${index === currentIndex ? "ring-2 ring-primary-500/50" : ""}`}
+                className={`testimonial-card card glass-card p-6 lg:p-8 relative ${index === currentIndex ? "ring-2 ring-primary-500/50" : ""}`}
                 role="listitem"
                 aria-hidden={index !== currentIndex}
               >
